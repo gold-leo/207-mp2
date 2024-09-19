@@ -104,6 +104,26 @@ public class BigFraction {
   } // doubleValue()
 
   /**
+   * Simplify this fraction.
+   *
+   * @return the result of the simplification.
+   */
+  public BigFraction simplify() {
+    BigInteger resultNumerator;
+    BigInteger resultDenominator;
+
+    // Find the GCD.
+    BigInteger gcd = this.num.gcd(this.denom);
+
+    // Divide the numerator and denominator by the GCD.
+    resultNumerator = this.num.divide(gcd);
+    resultDenominator = this.denom.divide(gcd);
+
+    // Return the computed value
+    return new BigFraction(resultNumerator, resultDenominator);
+  }
+
+  /**
    * Add another fraction to this fraction.
    *
    * @param addend
@@ -126,6 +146,14 @@ public class BigFraction {
     return new BigFraction(resultNumerator, resultDenominator);
   } // add(BigFraction)
 
+  /**
+   * Subtract another fraction to this fraction.
+   *
+   * @param sub
+   *   The fraction to subtract.
+   *
+   * @return the result of the subtraction.
+   */
   public BigFraction subtract(BigFraction sub) {
     BigInteger resultNumerator;
     BigInteger resultDenominator;
@@ -141,6 +169,14 @@ public class BigFraction {
     return new BigFraction(resultNumerator, resultDenominator);
   } // subtract(BigFraction)
 
+  /**
+   * Multiply another fraction to this fraction.
+   *
+   * @param factor
+   *   The fraction to multiply.
+   *
+   * @return the result of the multiplication.
+   */
   public BigFraction multiply(BigFraction multiplier) {
     BigInteger resultNumerator;
     BigInteger resultDenominator;
@@ -153,6 +189,14 @@ public class BigFraction {
     return new BigFraction(resultNumerator, resultDenominator);
   }
 
+  /**
+   * Divide another fraction to this fraction.
+   *
+   * @param divisor
+   *   The fraction to divise.
+   *
+   * @return the result of the division.
+   */
   public BigFraction divide(BigFraction multiplier) {
     BigInteger resultNumerator;
     BigInteger resultDenominator;
@@ -165,8 +209,6 @@ public class BigFraction {
     // Return the computed value
     return new BigFraction(resultNumerator, resultDenominator);
   }
-
-  
 
   /**
    * Get the denominator of this fraction.
