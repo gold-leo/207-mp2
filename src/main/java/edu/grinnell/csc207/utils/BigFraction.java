@@ -85,9 +85,34 @@ public class BigFraction {
    * @param str
    *   The fraction in string form
    */
-  public BigFraction(String str) {
-    this.num = DEFAULT_NUMERATOR;
-    this.denom = DEFAULT_DENOMINATOR;
+  public BigFraction(String str) throws Exception {
+    String[] nums = str.split("/");
+
+    if (nums.length == 2) {
+      try {
+        this.num = BigInteger.valueOf(Integer.parseInt(nums[0]));
+        this.denom = BigInteger.valueOf(Integer.parseInt(nums[1]));
+      }
+      catch (NumberFormatException e) {
+        throw new Exception("Not a valid fraction ");
+        // throw exception/print error
+        // re-enter main loop
+      }
+    }
+    else if (nums.length == 1) {
+      try {
+        this.num = BigInteger.valueOf(Integer.parseInt(nums[0]));
+        this.denom = BigInteger.valueOf(1);
+      }
+      catch (NumberFormatException e) {
+        throw new Exception("Not a valid whole number ");
+        // throw exception/print error
+        // re-enter main loop
+      }
+    }
+    else {
+      throw new Exception("Not a valid fraction or whole number ");
+    }
   } // BigFraction
 
   // +---------+------------------------------------------------------
