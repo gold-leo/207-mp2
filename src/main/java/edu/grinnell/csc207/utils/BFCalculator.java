@@ -26,6 +26,10 @@ public class BFCalculator {
     return this.lastVal;
   }
 
+  public void set(BigFraction val) {
+    lastVal = val;
+  }
+
   //adds val to the last computed value.
   public void add(BigFraction val) {
     lastVal = lastVal.add(val);
