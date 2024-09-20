@@ -233,7 +233,7 @@ public class BigFraction {
     //Construct new BigFraction
     BigFraction f = new BigFraction(resultNumerator, resultDenominator);
     // Return the computed value
-    return f;
+    return f.simplify();
   }
 
   /**
