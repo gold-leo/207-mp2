@@ -116,7 +116,6 @@ public class General {
               prev_cmd = ERR;
               break parse;
           }
-          //pen.printf(f.numerator().toString() + "/" + f.denominator().toString() + " ");
         }
       }
     } // string parse
@@ -124,7 +123,7 @@ public class General {
       pen.println(cal.get().toString());
       calc.set(cal.get());
     }
-    else if (prev_cmd < 5 && prev_cmd > 0) {
+    else if (prev_cmd < 5 && prev_cmd > 0 || prev_cmd == NONE) {
       System.err.println("ERROR: Invalid expression");
     }
   }
