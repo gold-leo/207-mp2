@@ -13,12 +13,25 @@ public class BFRegisterSet {
   // +--------------+
 
   public BFRegisterSet() {
-
+    for (int i = 0; i < 26; i++) {
+      registry[i] = new BigFraction();
+    }
   }
 
   // +---------+------------------------------------------------------
   // | Methods |
   // +---------+
+
+  public static boolean valid_register(String str) {
+    if (str.length() > 1) {
+      return false;
+    }
+    int i = General.l2i(str.charAt(0));
+    if (i < 0 || i > 25) {
+      return false;
+    }
+    return true;
+  }
 
   //stores the given value in the specified register.
   public void store(char register, BigFraction val) {
@@ -26,14 +39,8 @@ public class BFRegisterSet {
   }
 
   //retrieves the value from the given register.
-  public BigFraction get(char register) throws Exception {
+  public BigFraction get(char register) {
     BigFraction v = registry[General.l2i(register)];
-
-    if (v == null) {
-      throw new Exception("Invalid register " + register);
-    }
-    else {
-      return v;
-    }
+    return v;
   }
 }
