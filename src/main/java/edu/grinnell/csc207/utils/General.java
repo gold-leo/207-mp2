@@ -1,7 +1,5 @@
 package edu.grinnell.csc207.utils;
 
-import java.io.PrintWriter;
-
 public class General {
 
   // +-------+--------------------------------------------------------
