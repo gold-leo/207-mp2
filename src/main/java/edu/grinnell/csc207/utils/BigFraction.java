@@ -258,18 +258,19 @@ public class BigFraction {
    * @return a string that represents the fraction.
    */
   public String toString() {
+    BigFraction t = this.simplify();
     // Special case: It's zero
-    if (this.num.equals(BigInteger.ZERO)) {
+    if (t.num.equals(BigInteger.ZERO)) {
       return "0";
     } // if it's zero
     // Special case: whole number
-    if (this.denom.equals(BigInteger.ONE)) {
-      return this.num + "";
+    if (t.denom.equals(BigInteger.ONE)) {
+      return t.num + "";
     }
 
     // Lump together the string represention of the numerator,
     // a slash, and the string representation of the denominator
     // return this.num.toString().concat("/").concat(this.denom.toString());
-    return this.num + "/" + this.denom;
+    return t.num + "/" + t.denom;
   } // toString()
 } // class BigFraction

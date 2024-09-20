@@ -88,8 +88,7 @@ public class General {
             prev_cmd = ERR;
             break parse;
           }
-
-          f = f.simplify();
+          
           switch (prev_cmd) {
             case NONE:
               cal.set(f);
