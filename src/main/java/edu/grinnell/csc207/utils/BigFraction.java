@@ -100,8 +100,6 @@ public class BigFraction {
       this.num = BigInteger.ZERO;
       this.denom = BigInteger.ZERO;
     }
-
-
   } // BigFraction
 
   // +---------+------------------------------------------------------
