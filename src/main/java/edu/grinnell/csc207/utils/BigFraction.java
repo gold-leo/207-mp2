@@ -23,16 +23,6 @@ public class BigFraction {
    * method.
    */
 
-  // +-----------+---------------------------------------------------
-  // | Constants |
-  // +-----------+
-
-  /** The default numerator when creating fractions. */
-  private static final BigInteger DEFAULT_NUMERATOR = BigInteger.valueOf(2);
-
-  /** The default denominator when creating fractions. */
-  private static final BigInteger DEFAULT_DENOMINATOR = BigInteger.valueOf(7);
-
   // +--------+-------------------------------------------------------
   // | Fields |
   // +--------+
@@ -230,6 +220,10 @@ public class BigFraction {
   public BigFraction divide(BigFraction multiplier) {
     BigInteger resultNumerator;
     BigInteger resultDenominator;
+
+    if (multiplier.numerator() == BigInteger.ZERO) {
+      return new BigFraction(0, 1);
+    }
 
     // Flip divisors num and denom
     // Multiply both numerator and denominator
