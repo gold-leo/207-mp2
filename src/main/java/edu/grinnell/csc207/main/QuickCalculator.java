@@ -7,5 +7,7 @@ import edu.grinnell.csc207.utils.BFCalculator;
 import edu.grinnell.csc207.utils.BFRegisterSet;
 
 public class QuickCalculator {
-    
+    public static void main(String[] args) {
+      
+    }
 }
