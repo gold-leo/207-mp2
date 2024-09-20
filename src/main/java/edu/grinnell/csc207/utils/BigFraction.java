@@ -47,6 +47,11 @@ public class BigFraction {
   // | Constructors |
   // +--------------+
 
+  public BigFraction() {
+    this.num = BigInteger.ZERO;
+    this.denom = BigInteger.ZERO;
+  }
+
   /**
    * Build a new fraction with numerator num and denominator denom.
    *
@@ -85,34 +90,28 @@ public class BigFraction {
    * @param str
    *   The fraction in string form
    */
-  public BigFraction(String str) throws Exception {
+  public BigFraction(String str) {
     String[] nums = str.split("/");
 
     if (nums.length == 2) {
-      try {
-        this.num = BigInteger.valueOf(Integer.parseInt(nums[0]));
         this.denom = BigInteger.valueOf(Integer.parseInt(nums[1]));
-      }
-      catch (NumberFormatException e) {
-        throw new Exception("Not a valid fraction ");
-        // throw exception/print error
-        // re-enter main loop
-      }
     }
     else if (nums.length == 1) {
-      try {
-        this.num = BigInteger.valueOf(Integer.parseInt(nums[0]));
         this.denom = BigInteger.valueOf(1);
       }
-      catch (NumberFormatException e) {
-        throw new Exception("Not a valid whole number ");
-        // throw exception/print error
-        // re-enter main loop
-      }
-    }
     else {
-      throw new Exception("Not a valid fraction or whole number ");
+      this.denom = BigInteger.ZERO;
     }
+
+    try {
+      this.num = BigInteger.valueOf(Integer.parseInt(nums[0]));
+    }
+    catch (NumberFormatException e) {
+      this.num = BigInteger.ZERO;
+      this.denom = BigInteger.ZERO;
+    }
+
+
   } // BigFraction
 
   // +---------+------------------------------------------------------
@@ -132,10 +131,16 @@ public class BigFraction {
    * Simplify this fraction.
    *
    * @return the result of the simplification.
-   */
+   */ 
   public BigFraction simplify() {
     BigInteger resultNumerator;
     BigInteger resultDenominator;
+
+    // Multiply the numerator by the sign of the denominator.
+    this.num = this.num.multiply(BigInteger.valueOf(this.denom.signum()));
+
+    // Remove signs from denominator.
+    this.denom = this.denom.abs();
 
     // Find the GCD.
     BigInteger gcd = this.num.gcd(this.denom);
@@ -168,7 +173,7 @@ public class BigFraction {
       (this.num.multiply(addend.denom)).add(addend.num.multiply(this.denom));
 
     // Return the computed value
-    return new BigFraction(resultNumerator, resultDenominator);
+    return new BigFraction(resultNumerator, resultDenominator).simplify();
   } // add(BigFraction)
 
   /**
@@ -191,7 +196,7 @@ public class BigFraction {
       (this.num.multiply(sub.denom)).subtract(sub.num.multiply(this.denom));
 
     // Return the computed value
-    return new BigFraction(resultNumerator, resultDenominator);
+    return new BigFraction(resultNumerator, resultDenominator).simplify();
   } // subtract(BigFraction)
 
   /**
@@ -211,7 +216,7 @@ public class BigFraction {
     resultDenominator = this.denom.multiply(multiplier.denom);
 
     // Return the computed value
-    return new BigFraction(resultNumerator, resultDenominator);
+    return new BigFraction(resultNumerator, resultDenominator).simplify();
   }
 
   /**
@@ -231,8 +236,10 @@ public class BigFraction {
     resultNumerator = this.num.multiply(multiplier.denom);
     resultDenominator = this.denom.multiply(multiplier.num);
 
+    //Construct new BigFraction
+    BigFraction f = new BigFraction(resultNumerator, resultDenominator);
     // Return the computed value
-    return new BigFraction(resultNumerator, resultDenominator);
+    return f;
   }
 
   /**
@@ -263,6 +270,10 @@ public class BigFraction {
     if (this.num.equals(BigInteger.ZERO)) {
       return "0";
     } // if it's zero
+    // Special case: whole number
+    if (this.denom.equals(BigInteger.ONE)) {
+      return this.num + "";
+    }
 
     // Lump together the string represention of the numerator,
     // a slash, and the string representation of the denominator
