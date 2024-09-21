@@ -142,9 +142,9 @@ public class TestMP02 {
         "M: Parsing and simplifying 1");
     assertEquals("4/7", new BigFraction("40/70").toString(),
         "M: Parsing and simplifying 2");
-    assertEquals(BigInteger.valueOf(3), new BigFraction("15/10").numerator(),
+    assertEquals(BigInteger.valueOf(3), new BigFraction("15/10").numerator(), // why do we have to simplify
         "M: Parsing and simplifying 3a");
-    assertEquals(BigInteger.valueOf(2), new BigFraction("15/10").denominator(),
+    assertEquals(BigInteger.valueOf(2), new BigFraction("15/10").denominator(), // in the constructor?
         "M: Parsing and simplifying 3a");
   } // testBfParseSimplify()
 
