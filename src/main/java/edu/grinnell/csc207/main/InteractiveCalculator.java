@@ -7,15 +7,19 @@ import edu.grinnell.csc207.utils.BFCalculator;
 import edu.grinnell.csc207.utils.BFRegisterSet;
 import edu.grinnell.csc207.utils.General;
 
+/** */
 public class InteractiveCalculator {
 
+  /**
+   * @param args
+   */
   public static void main(String[] args) {
     PrintWriter pen = new PrintWriter(System.out, true);
     Scanner eyes = new Scanner(System.in);
 
-    //create a calculator
+    // create a calculator
     BFCalculator calc = new BFCalculator();
-    //create a registry
+    // create a registry
     BFRegisterSet regi = new BFRegisterSet();
 
     for (;;) {
@@ -26,9 +30,9 @@ public class InteractiveCalculator {
       if (str.equals("QUIT")) {
         eyes.close();
         return;
-      }
+      } // if
 
-      General.process_str(str, calc, regi, pen);
+      General.processStr(str, calc, regi, pen);
     } // command loop
   } // main
-}
+} // class

@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
  * Tests of the various classes for MP02.
  *
  * In a typical Maven project, this should be stored in
- *   src/test/java/edu/grinnel/csc207.
+ * src/test/java/edu/grinnel/csc207.
  *
  * @author Samuel A. Rebelsky
  */
@@ -58,11 +58,11 @@ public class TestMP02 {
    */
   @Test
   public void testBfAdd() {
-    assertEquals("5/6", ONE_THIRD.add(ONE_HALF).toString(), 
+    assertEquals("5/6", ONE_THIRD.add(ONE_HALF).toString(),
         "R: Addition 1");
-    assertEquals("13/15", ONE_FIFTH.add(TWO_THIRDS).toString(), 
+    assertEquals("13/15", ONE_FIFTH.add(TWO_THIRDS).toString(),
         "R: Addition 2");
-    assertEquals("4/3", TWO_THIRDS.add(TWO_THIRDS).toString(), 
+    assertEquals("4/3", TWO_THIRDS.add(TWO_THIRDS).toString(),
         "R: Addition 3");
   } // testBfAdd()
 
@@ -71,13 +71,13 @@ public class TestMP02 {
    */
   @Test
   public void testBfSubtract() {
-    assertEquals("1/6", ONE_HALF.subtract(ONE_THIRD).toString(), 
+    assertEquals("1/6", ONE_HALF.subtract(ONE_THIRD).toString(),
         "R: Subtraction 1");
-    assertEquals("1/3", TWO_THIRDS.subtract(ONE_THIRD).toString(), 
+    assertEquals("1/3", TWO_THIRDS.subtract(ONE_THIRD).toString(),
         "R: Subtraction 2");
   } // testBfSubtract()
 
-  /** 
+  /**
    * Can we multiply two BigFractions?
    */
   @Test
@@ -88,7 +88,7 @@ public class TestMP02 {
         "R: Multiplication 2");
   } // testBfMultiply()
 
-  /** 
+  /**
    * Can we divide two BigFractions?
    */
   @Test
@@ -111,11 +111,11 @@ public class TestMP02 {
   @Test
   public void testBfSimplify() {
     assertEquals("2/3", new BigFraction(4, 6).toString(),
-      "M: Simplify 1");
+        "M: Simplify 1");
     assertEquals("5/3", new BigFraction(15, 9).toString(),
-      "M: Simplify 2");
+        "M: Simplify 2");
     assertEquals("1/2", ONE_THIRD.add(ONE_SIXTH).toString(),
-      "M: Simplify 3");
+        "M: Simplify 3");
   } // testBfSimplify()
 
   /**
@@ -124,13 +124,13 @@ public class TestMP02 {
   @Test
   public void testBfParse() {
     assertEquals("1/13", new BigFraction("1/13").toString(),
-      "M: Parsing 1");
+        "M: Parsing 1");
     assertEquals("5/11", new BigFraction("5/11").toString(),
-      "M: Parsing 2");
+        "M: Parsing 2");
     assertEquals(BigInteger.valueOf(22), new BigFraction("22/7").numerator(),
-      "M: Parsing 3a");
+        "M: Parsing 3a");
     assertEquals(BigInteger.valueOf(7), new BigFraction("22/7").denominator(),
-      "M: Parsing 3b");
+        "M: Parsing 3b");
   } // testBfParse()
 
   /**
@@ -139,13 +139,13 @@ public class TestMP02 {
   @Test
   public void testBfParseSimplify() {
     assertEquals("2/3", new BigFraction("4/6").toString(),
-      "M: Parsing and simplifying 1");  
+        "M: Parsing and simplifying 1");
     assertEquals("4/7", new BigFraction("40/70").toString(),
-      "M: Parsing and simplifying 2"); 
+        "M: Parsing and simplifying 2");
     assertEquals(BigInteger.valueOf(3), new BigFraction("15/10").numerator(),
-      "M: Parsing and simplifying 3a");
+        "M: Parsing and simplifying 3a");
     assertEquals(BigInteger.valueOf(2), new BigFraction("15/10").denominator(),
-      "M: Parsing and simplifying 3a");
+        "M: Parsing and simplifying 3a");
   } // testBfParseSimplify()
 
   // +-----------------------+---------------------------------------
@@ -158,14 +158,14 @@ public class TestMP02 {
   @Test
   public void testBfReturnWhole() {
     assertEquals("3", new BigFraction("9/3").toString(),
-       "E: Simplify to whole number 1");
+        "E: Simplify to whole number 1");
     assertEquals("1", ONE_HALF.add(ONE_HALF).toString(),
-       "E: Simplify to whole number 2");
+        "E: Simplify to whole number 2");
     assertEquals("2", TWO_THIRDS.divide(ONE_THIRD).toString(),
-       "E: Simplify to whole number 3");
-    assertEquals("0", 
-       TWO_THIRDS.subtract(ONE_THIRD).subtract(ONE_THIRD).toString(),
-       "E: Simplify to whole number 4");
+        "E: Simplify to whole number 3");
+    assertEquals("0",
+        TWO_THIRDS.subtract(ONE_THIRD).subtract(ONE_THIRD).toString(),
+        "E: Simplify to whole number 4");
   } // testBfReturnWhole
 
   /**
@@ -186,7 +186,7 @@ public class TestMP02 {
   public void testBfParseNegative() {
     assertEquals("-3/5", new BigFraction("-3/5").toString(),
         "E: Parse negative number 1");
-    assertEquals("-1/2", 
+    assertEquals("-1/2",
         new BigFraction("-1/4").add(new BigFraction("-1/4")).toString(),
         "E: Parse negative number 2");
   } // testBfParseNegative()
@@ -200,7 +200,7 @@ public class TestMP02 {
    */
   @Test
   public void testBfcNew() {
-    assertNotNull(new BFCalculator(), 
+    assertNotNull(new BFCalculator(),
         "R: Create new BFCalculator");
   } // testBfcNew()
 
@@ -396,7 +396,7 @@ public class TestMP02 {
    */
   @Test
   public void testBfrsNew() {
-    assertNotNull(new BFRegisterSet(), 
+    assertNotNull(new BFRegisterSet(),
         "R: Create new BFRegisterSet");
   } // testBfrsNew()
 
@@ -484,61 +484,60 @@ public class TestMP02 {
     registersC.store('j', ONE_SIXTH);
 
     assertEquals("1/2", registersA.get('i').toString(),
-      "E: Independent updates 1ai");
+        "E: Independent updates 1ai");
     assertEquals("1/2", registersA.get('j').toString(),
-      "E: Independent updates 1aj");
+        "E: Independent updates 1aj");
     assertEquals("1/3", registersB.get('i').toString(),
-      "E: Independent updates 1bi");
+        "E: Independent updates 1bi");
     assertEquals("2/3", registersB.get('j').toString(),
-      "E: Independent updates 1bj");
+        "E: Independent updates 1bj");
     assertEquals("1/5", registersC.get('i').toString(),
-      "E: Independent updates 1ci");
+        "E: Independent updates 1ci");
     assertEquals("1/6", registersC.get('j').toString(),
-      "E: Independent updates 1cj");
+        "E: Independent updates 1cj");
 
     registersA.store('i', ONE_SIXTH);
     assertEquals("1/6", registersA.get('i').toString(),
-      "E: Independent updates 2ai");
+        "E: Independent updates 2ai");
     assertEquals("1/2", registersA.get('j').toString(),
-      "E: Independent updates 2aj");
+        "E: Independent updates 2aj");
     assertEquals("1/3", registersB.get('i').toString(),
-      "E: Independent updates 2bi");
+        "E: Independent updates 2bi");
     assertEquals("2/3", registersB.get('j').toString(),
-      "E: Independent updates 2bj");
+        "E: Independent updates 2bj");
     assertEquals("1/5", registersC.get('i').toString(),
-      "E: Independent updates 2ci");
+        "E: Independent updates 2ci");
     assertEquals("1/6", registersC.get('j').toString(),
-      "E: Independent updates 2cj");
+        "E: Independent updates 2cj");
 
     registersC.store('i', ONE_HALF);
     assertEquals("1/6", registersA.get('i').toString(),
-      "E: Independent updates 3ai");
+        "E: Independent updates 3ai");
     assertEquals("1/2", registersA.get('j').toString(),
-      "E: Independent updates 3aj");
+        "E: Independent updates 3aj");
     assertEquals("1/3", registersB.get('i').toString(),
-      "E: Independent updates 3bi");
+        "E: Independent updates 3bi");
     assertEquals("2/3", registersB.get('j').toString(),
-      "E: Independent updates 3bj");
+        "E: Independent updates 3bj");
     assertEquals("1/2", registersC.get('i').toString(),
-      "E: Independent updates 3ci");
+        "E: Independent updates 3ci");
     assertEquals("1/6", registersC.get('j').toString(),
-      "E: Independent updates 3cj");
+        "E: Independent updates 3cj");
 
     registersB.store('j', ONE_FIFTH);
     assertEquals("1/6", registersA.get('i').toString(),
-      "E: Independent updates 4ai");
+        "E: Independent updates 4ai");
     assertEquals("1/2", registersA.get('j').toString(),
-      "E: Independent updates 4aj");
+        "E: Independent updates 4aj");
     assertEquals("1/3", registersB.get('i').toString(),
-      "E: Independent updates 4bi");
+        "E: Independent updates 4bi");
     assertEquals("1/5", registersB.get('j').toString(),
-      "E: Independent updates 4bj");
+        "E: Independent updates 4bj");
     assertEquals("1/2", registersC.get('i').toString(),
-      "E: Independent updates 4ci");
+        "E: Independent updates 4ci");
     assertEquals("1/6", registersC.get('j').toString(),
-      "E: Independent updates 4cj");
+        "E: Independent updates 4cj");
 
   } // testBfrsIndependentUpdate()
 
 } // class TestMP02
-
