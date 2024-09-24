@@ -238,7 +238,7 @@ public class BigFraction {
    * @return the denominator
    */
   public BigInteger denominator() {
-    return this.denom;
+    return this.simplify().denom;
   } // denominator()
 
   /**
@@ -247,7 +247,7 @@ public class BigFraction {
    * @return the numerator
    */
   public BigInteger numerator() {
-    return this.num;
+    return this.simplify().num;
   } // numerator()
 
   /**
