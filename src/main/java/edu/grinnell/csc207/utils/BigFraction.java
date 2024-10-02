@@ -121,8 +121,8 @@ public class BigFraction {
    * @return the result of the simplification.
    */
   public BigFraction simplify() {
-    BigInteger resultNumerator;
-    BigInteger resultDenominator;
+    BigInteger resultNumerator = this.num;
+    BigInteger resultDenominator  = this.denom;
 
     // Multiply the numerator by the sign of the denominator.
     this.num = this.num.multiply(BigInteger.valueOf(this.denom.signum()));
@@ -134,8 +134,10 @@ public class BigFraction {
     BigInteger gcd = this.num.gcd(this.denom);
 
     // Divide the numerator and denominator by the GCD.
-    resultNumerator = this.num.divide(gcd);
-    resultDenominator = this.denom.divide(gcd);
+    if (gcd != BigInteger.ZERO) {
+      resultNumerator = this.num.divide(gcd);
+      resultDenominator = this.denom.divide(gcd);
+    } // check if GCD is zero
 
     // Return the computed value
     return new BigFraction(resultNumerator, resultDenominator);
