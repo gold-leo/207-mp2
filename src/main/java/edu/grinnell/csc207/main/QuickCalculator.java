@@ -6,7 +6,11 @@ import edu.grinnell.csc207.utils.BFCalculator;
 import edu.grinnell.csc207.utils.BFRegisterSet;
 import edu.grinnell.csc207.utils.General;
 
-/**  */
+/**  
+ * The quick calculator (runs from one command)
+ * 
+ * @author leo goldman
+*/
 public class QuickCalculator {
 
   /**

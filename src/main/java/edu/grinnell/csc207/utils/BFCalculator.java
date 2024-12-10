@@ -2,6 +2,8 @@ package edu.grinnell.csc207.utils;
 
 /**
  * Calculator for BigFractions.
+ * 
+ * @author leo goldman
 */
 public class BFCalculator {
 

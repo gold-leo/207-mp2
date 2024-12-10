@@ -2,6 +2,8 @@ package edu.grinnell.csc207.utils;
 
 /**
  * Registry for BigFractions. Stores up to 26 values (a-z). 
+ * 
+ * @author leo goldman
  */
 public class BFRegisterSet {
 
