@@ -5,7 +5,7 @@ import java.math.BigInteger;
 
 /**
  * Class for general utils.
- * 
+ *
  * @author leo goldman
  */
 public class General {

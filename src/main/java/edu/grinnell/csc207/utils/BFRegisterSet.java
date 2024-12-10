@@ -1,8 +1,8 @@
 package edu.grinnell.csc207.utils;
 
 /**
- * Registry for BigFractions. Stores up to 26 values (a-z). 
- * 
+ * Registry for BigFractions. Stores up to 26 values (a-z).
+ *
  * @author leo goldman
  */
 public class BFRegisterSet {
@@ -56,7 +56,7 @@ public class BFRegisterSet {
 
   /**
    * Stores the val in the register.
-   * Prereq: register must be a valid register character. 
+   * Prereq: register must be a valid register character.
    * @param val
    * @param register
    */
@@ -66,7 +66,7 @@ public class BFRegisterSet {
 
   /**
    * Retrieves the value from register.
-   * Prereq: register must be a valid register character. 
+   * Prereq: register must be a valid register character.
    * @param register
    * @return BigFraction v
    **/
