@@ -7,9 +7,9 @@ import edu.grinnell.csc207.utils.BFCalculator;
 import edu.grinnell.csc207.utils.BFRegisterSet;
 import edu.grinnell.csc207.utils.General;
 
-/** 
- * The interactive calculator (running while being used)
- * 
+/**
+ * The interactive calculator (running while being used).
+ *
  * @author leo goldman
 */
 public class InteractiveCalculator {
